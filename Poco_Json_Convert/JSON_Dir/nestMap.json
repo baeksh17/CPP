@@ -1,0 +1,17 @@
+{
+    "id": {
+            "id": 2,
+            "guid": {
+                      "id": 2,
+                      "guid": "509284c3-bfe8-408f-9c78-a83d04ea1cf0",
+                      "picture": "http://placehold.it/32x32",
+                      "age": 20,
+                      "name": "Alexis Winter",
+                      "gender": "male",
+                      "company": "Orthomedia",
+                      "phone": "863-548-3237",
+                      "email": "alexis@orthomedia.com"
+                    }
+
+          }
+}

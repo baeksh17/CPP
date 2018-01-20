@@ -25,13 +25,16 @@
 class CExtractMap
 {
 public:
-    int ExtractMap(Poco::JSON::Object::Ptr pObject_) {
+    int ExtractMap(Poco::JSON::Object::Ptr pObject_, std::string pKey = "") {
         
         int result = 0;
-        
+        if(pKey != "")
+        {
+            std::cout << "親のKeyは : " << pKey << std::endl;
+            std::cout << "-----------------------------------" << std::endl;
+        }
         std::cout << "" << std::endl;
         std::cout << "this is ExtractMap" << std::endl;
-        std::cout << "====================================" << std::endl;
         std::cout << "====================================" << std::endl;
     
         for(Poco::JSON::Object::ConstIterator it = pObject_->begin(), end = pObject_->end(); it != end; ++it) {
@@ -56,10 +59,10 @@ public:
             {
                 std::cout << "Value is Object::Ptr(ExtractMap)" << std::endl;
                 std::cout << "Key : " << it->first << std::endl;
-                std::cout << "====================================" << std::endl;
                 std::cout << "Value : " << std::endl;
+                std::cout << "====================================" << std::endl;
                 Poco::JSON::Object::Ptr NestObject = it->second.extract<Poco::JSON::Object::Ptr>();
-                result = ExtractMap(NestObject);
+                result = ExtractMap(NestObject, it->first);
                 std::cout << "====================================" << std::endl;
                 std::cout << "" << std::endl;
                 
@@ -68,25 +71,33 @@ public:
             {
                 std::cout << "Value is Array::Ptr(ExtractMap)" << std::endl;
                 std::cout << "Key : " << it->first << std::endl;
-                std::cout << "====================================" << std::endl;
                 std::cout << "Value : " << std::endl;
+                std::cout << "====================================" << std::endl;
                 Poco::JSON::Array::Ptr NestArray = it->second.extract<Poco::JSON::Array::Ptr>();
-                result = ExtractArray(NestArray);
+                result = ExtractArray(NestArray, it->first);
                 std::cout << "====================================" << std::endl;
                 std::cout << "" << std::endl;
             }
         }
         
         std::cout << "====================================" << std::endl;
-        std::cout << "====================================" << std::endl;
-        
+        if(pKey != "")
+        {
+            std::cout << "-----------------------------------" << std::endl;
+        }
         return result;
     }
 
-    int ExtractArray(Poco::JSON::Array::Ptr pArray_) {
+    int ExtractArray(Poco::JSON::Array::Ptr pArray_, std::string pKey = "") {
         int result = 0;
+        if(pKey != "")
+        {
+            std::cout << "親のKeyは : " << pKey << std::endl;
+            
+        }
         std::cout << "" << std::endl;
         std::cout << "this is ExtractArray" << std::endl;
+        std::cout << "====================================" << std::endl;
         int checker = 0;
         
         for(Poco::JSON::Array::ConstIterator it = pArray_->begin(), end = pArray_->end(); it !=end; ++it) {
@@ -114,7 +125,7 @@ public:
                 std::cout << "Value : "<< std::endl;
                 std::cout << "====================================" << std::endl;
                 Poco::JSON::Object::Ptr NestObject = it->extract<Poco::JSON::Object::Ptr>();
-                result = ExtractMap(NestObject);
+                result = ExtractMap(NestObject, std::to_string(checker));
                 std::cout << "====================================" << std::endl;
                 std::cout << "" << std::endl;
                 
@@ -123,10 +134,10 @@ public:
             {
                 std::cout << "Value is Array::Ptr(Nested_ExtractArray)" << std::endl;
                 std::cout << "Key : " << checker << std::endl;
-                std::cout << "====================================" << std::endl;
                 std::cout << "Value : " << std::endl;
+                std::cout << "====================================" << std::endl;
                 Poco::JSON::Array::Ptr NestArray = it->extract<Poco::JSON::Array::Ptr>();
-                result = ExtractArray(NestArray);
+                result = ExtractArray(NestArray, std::to_string(checker));
                 std::cout << "====================================" << std::endl;
                 std::cout << "" << std::endl;
             }
@@ -135,6 +146,11 @@ public:
             
         }
     
+        std::cout << "====================================" << std::endl;
+        if(pKey != "")
+        {
+            std::cout << "-----------------------------------" << std::endl;
+        }
         return result;
     }
 
@@ -142,10 +158,10 @@ public:
 
 int main(int argc, char** argv)
 {
-//    Poco::Stopwatch sw;
     
     std::string dir = "/Users/bko117/Desktop/Git/CPP/Poco_Json_Convert/JSON_Dir/";
-    Poco::Path filePath(dir, "input.json");
+//    Poco::Path filePath(dir, "input.json");
+    Poco::Path filePath(dir, "nestMap.json");
     
     std::ostringstream ostr;
     
