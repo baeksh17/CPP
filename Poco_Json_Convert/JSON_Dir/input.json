@@ -3,43 +3,7 @@
     "jsonrpc": "2.0",
     "total": 10,
     "result": [
-        {
-            "id": 1,
-            "guid": "5a81c42a-3a88-4aec-b5e5-0b23e0257050",
-            "picture": "http://placehold.it/32x32",
-            "age": 21,
-            "name": "Trinity Brown",
-            "gender": "male",
-            "company": "Unconix",
-            "phone": "803-425-3647",
-            "email": "trinity@unconix.com",
-            "address": "12676, Alaska, Stanton Streets",
-            "about": "Odio dolore iriure dignissim qui erat, commodo ad nisl consequat ex, zzril at sed amet. Ut, suscipit et hendrerit hendrerit amet, erat ex dolor accumsan nonummy, duis molestie qui. Suscipit hendrerit, aliquip ea consequat ex nulla, velit minim eum ex veniam, dignissim feugait. Praesent dolor ut, duis et ea illum nisl, duis delenit consectetuer amet velit, nonummy. Ad ipsum dolore duis, velit lorem ut veniam dolore, iusto euismod vulputate accumsan qui, esse qui illum at suscipit, tation eu dignissim feugait nostrud, quis dolor lobortis quis. Eum, lobortis eros vulputate in ut, nostrud dolor quis velit.",
-            "registered": "2001-10-29T21:55:29 +06:00",
-            "tags": [
-                "consequat",
-                "illum",
-                "quis",
-                "blandit",
-                "at",
-                "sed",
-                "autem"
-            ],
-            "friends": [
-                {
-                    "id": 1,
-                    "name": "Vanessa Winter"
-                },
-                {
-                    "id": 2,
-                    "name": "Paige Bush"
-                },
-                {
-                    "id": 3,
-                    "name": "Charlotte Hawkins"
-                }
-            ]
-        },
+        "1",
         {
             "id": 2,
             "guid": "509284c3-bfe8-408f-9c78-a83d04ea1cf0",

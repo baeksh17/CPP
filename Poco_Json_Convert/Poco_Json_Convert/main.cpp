@@ -22,53 +22,123 @@
 #include <iostream>
 #include <iomanip>
 
-int ExtractMap(Poco::JSON::Object::Ptr pObject_) {
-    
-    int result = 0;
-    
-    for(Poco::JSON::Object::ConstIterator it = pObject_->begin(), end = pObject_->end(); it != end; ++it) {
+class CExtractMap
+{
+public:
+    int ExtractMap(Poco::JSON::Object::Ptr pObject_) {
         
-        if (it->second.type() == typeid(std::string))
-        {
-//            std::cout << "Value is string" << std::endl;
-//            std::cout << "Key : " << it->first << std::endl;
-//            std::cout << "Value.typeid : " << it->second.type().name() << std::endl;
+        int result = 0;
+        
+        std::cout << "" << std::endl;
+        std::cout << "this is ExtractMap" << std::endl;
+        std::cout << "====================================" << std::endl;
+        std::cout << "====================================" << std::endl;
+    
+        for(Poco::JSON::Object::ConstIterator it = pObject_->begin(), end = pObject_->end(); it != end; ++it) {
             
-            std::map<std::string, std::string> stringMap;
-            
-            stringMap.insert(std::make_pair(it->first, it->second.toString()));
-            
-            std::cout << "stringMap key : " << it->first << std::endl;
-            std::cout << "stringMap value : " << stringMap[it->first] << std::endl;
+            if (it->second.type() == typeid(std::string))
+            {
+                
+                std::cout << "Value is string(ExtractMap)" << std::endl;
+                std::cout << "Key : " << it->first << std::endl;
+                std::cout << "Value : " << it->second.toString() << std::endl;
+                std::cout << "" << std::endl;
+            }
+            else if (it->second.type() == typeid(long))
+            {
+                
+                std::cout << "Value is long(ExtractMap)" << std::endl;
+                std::cout << "Key : " << it->first << std::endl;
+                std::cout << "Value : " << it->second.toString() << std::endl;
+                std::cout << "" << std::endl;
+            }
+            else if(it->second.type() == typeid(Poco::JSON::Object::Ptr))
+            {
+                std::cout << "Value is Object::Ptr(ExtractMap)" << std::endl;
+                std::cout << "Key : " << it->first << std::endl;
+                std::cout << "====================================" << std::endl;
+                std::cout << "Value : " << std::endl;
+                Poco::JSON::Object::Ptr NestObject = it->second.extract<Poco::JSON::Object::Ptr>();
+                result = ExtractMap(NestObject);
+                std::cout << "====================================" << std::endl;
+                std::cout << "" << std::endl;
+                
+            }
+            else if(it->second.type() == typeid(Poco::JSON::Array::Ptr))
+            {
+                std::cout << "Value is Array::Ptr(ExtractMap)" << std::endl;
+                std::cout << "Key : " << it->first << std::endl;
+                std::cout << "====================================" << std::endl;
+                std::cout << "Value : " << std::endl;
+                Poco::JSON::Array::Ptr NestArray = it->second.extract<Poco::JSON::Array::Ptr>();
+                result = ExtractArray(NestArray);
+                std::cout << "====================================" << std::endl;
+                std::cout << "" << std::endl;
+            }
         }
-        else if(it->second.type() == typeid(Poco::JSON::Object::Ptr))
-        {
-            std::cout << "Value is Object::Ptr" << std::endl;
-            std::cout << "Key : " << it->first << std::endl;
-//            std::cout << "Value.typeid : " << it->second.type().name() << std::endl;
-        }
-        else if(it->second.type() == typeid(Poco::JSON::Array::Ptr))
-        {
-            std::cout << "Value is Array::Ptr" << std::endl;
-            std::cout << "Key : " << it->first << std::endl;
-//            std::cout << "Value.typeid : " << it->second.type().name() << std::endl;
-            
-            ExtractArray(it->second);
-            
-        }
+        
+        std::cout << "====================================" << std::endl;
+        std::cout << "====================================" << std::endl;
+        
+        return result;
     }
-    return result;
-}
 
-int ExtractArray(Poco::JSON::Array::Ptr pArray_) {
+    int ExtractArray(Poco::JSON::Array::Ptr pArray_) {
+        int result = 0;
+        std::cout << "" << std::endl;
+        std::cout << "this is ExtractArray" << std::endl;
+        int checker = 0;
+        
+        for(Poco::JSON::Array::ConstIterator it = pArray_->begin(), end = pArray_->end(); it !=end; ++it) {
+            
+            if (it->type() == typeid(std::string))
+            {
+                std::cout << "Value is string(Nested_ExtractArray)" << std::endl;
+                std::cout << "Key : " << checker << std::endl;
+                std::cout << "Value : " << it->toString() << std::endl;
+                std::cout << "" << std::endl;
+        
+            }
+            else if (it->type() == typeid(long))
+            {
+                
+                std::cout << "Value is long(Nested_ExtractMap)" << std::endl;
+                std::cout << "Key : " << checker << std::endl;
+                std::cout << "Value : " << it->toString() << std::endl;
+                std::cout << "" << std::endl;
+            }
+            else if(it->type() == typeid(Poco::JSON::Object::Ptr))
+            {
+                std::cout << "Value is Object::Ptr(Nested_ExtractArray)" << std::endl;
+                std::cout << "Key : " << checker << std::endl;
+                std::cout << "Value : "<< std::endl;
+                std::cout << "====================================" << std::endl;
+                Poco::JSON::Object::Ptr NestObject = it->extract<Poco::JSON::Object::Ptr>();
+                result = ExtractMap(NestObject);
+                std::cout << "====================================" << std::endl;
+                std::cout << "" << std::endl;
+                
+            }
+            else if(it->type() == typeid(Poco::JSON::Array::Ptr))
+            {
+                std::cout << "Value is Array::Ptr(Nested_ExtractArray)" << std::endl;
+                std::cout << "Key : " << checker << std::endl;
+                std::cout << "====================================" << std::endl;
+                std::cout << "Value : " << std::endl;
+                Poco::JSON::Array::Ptr NestArray = it->extract<Poco::JSON::Array::Ptr>();
+                result = ExtractArray(NestArray);
+                std::cout << "====================================" << std::endl;
+                std::cout << "" << std::endl;
+            }
+            
+            checker++;
+            
+        }
     
-    for(Poco::JSON::Array::ConstIterator it = pArray_->begin(), end = pArray_->end(); it !=end; ++it) {
-        
-        std::cout << "Nest Array key : " << it-> << std::endl;
-        
+        return result;
     }
-    
-}
+
+};
 
 int main(int argc, char** argv)
 {
@@ -96,15 +166,15 @@ int main(int argc, char** argv)
     
     std::string jsonData = ostr.str();
     
-//    std::cout << jsonData << std::endl;
-    
     Poco::JSON::Parser parser;
     
     Poco::Dynamic::Var result = parser.parse(jsonData);
     
     Poco::JSON::Object::Ptr object = result.extract<Poco::JSON::Object::Ptr>();
     
-    ExtractMap(object);
+    CExtractMap abc;
+    
+    abc.ExtractMap(object);
     
     return 0;
 }
