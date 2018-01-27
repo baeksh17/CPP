@@ -1,0 +1,416 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7C2AA43F201C0F890076D2A0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C2AA43E201C0F890076D2A0 /* main.cpp */; };
+		7C2AA45C201C101A0076D2A0 /* libPocoRedis.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA446201C10190076D2A0 /* libPocoRedis.51.dylib */; };
+		7C2AA45D201C101A0076D2A0 /* libPocoDatad.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA447201C10190076D2A0 /* libPocoDatad.51.dylib */; };
+		7C2AA45E201C101A0076D2A0 /* libPocoNet.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA448201C101A0076D2A0 /* libPocoNet.51.dylib */; };
+		7C2AA45F201C101A0076D2A0 /* libPocoData.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA449201C101A0076D2A0 /* libPocoData.51.dylib */; };
+		7C2AA460201C101A0076D2A0 /* libPocoRedisd.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA44A201C101A0076D2A0 /* libPocoRedisd.51.dylib */; };
+		7C2AA461201C101A0076D2A0 /* libPocoXML.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA44B201C101A0076D2A0 /* libPocoXML.51.dylib */; };
+		7C2AA462201C101A0076D2A0 /* libPocoZipd.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA44C201C101A0076D2A0 /* libPocoZipd.51.dylib */; };
+		7C2AA463201C101A0076D2A0 /* libPocoFoundationd.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA44D201C101A0076D2A0 /* libPocoFoundationd.51.dylib */; };
+		7C2AA464201C101A0076D2A0 /* libPocoJSONd.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA44E201C101A0076D2A0 /* libPocoJSONd.51.dylib */; };
+		7C2AA465201C101A0076D2A0 /* libPocoNetd.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA44F201C101A0076D2A0 /* libPocoNetd.51.dylib */; };
+		7C2AA466201C101A0076D2A0 /* libPocoDataSQLited.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA450201C101A0076D2A0 /* libPocoDataSQLited.51.dylib */; };
+		7C2AA467201C101A0076D2A0 /* libPocoCryptod.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA451201C101A0076D2A0 /* libPocoCryptod.51.dylib */; };
+		7C2AA468201C101A0076D2A0 /* libPocoDataSQLite.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA452201C101A0076D2A0 /* libPocoDataSQLite.51.dylib */; };
+		7C2AA469201C101A0076D2A0 /* libPocoNetSSL.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA453201C101A0076D2A0 /* libPocoNetSSL.51.dylib */; };
+		7C2AA46A201C101A0076D2A0 /* libPocoZip.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA454201C101A0076D2A0 /* libPocoZip.51.dylib */; };
+		7C2AA46B201C101A0076D2A0 /* libPocoFoundation.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA455201C101A0076D2A0 /* libPocoFoundation.51.dylib */; };
+		7C2AA46C201C101A0076D2A0 /* libPocoUtild.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA456201C101A0076D2A0 /* libPocoUtild.51.dylib */; };
+		7C2AA46D201C101A0076D2A0 /* libPocoXMLd.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA457201C101A0076D2A0 /* libPocoXMLd.51.dylib */; };
+		7C2AA46E201C101A0076D2A0 /* libPocoNetSSLd.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA458201C101A0076D2A0 /* libPocoNetSSLd.51.dylib */; };
+		7C2AA46F201C101A0076D2A0 /* libPocoUtil.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA459201C101A0076D2A0 /* libPocoUtil.51.dylib */; };
+		7C2AA470201C101A0076D2A0 /* libPocoCrypto.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA45A201C101A0076D2A0 /* libPocoCrypto.51.dylib */; };
+		7C2AA471201C101A0076D2A0 /* libPocoJSON.51.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C2AA45B201C101A0076D2A0 /* libPocoJSON.51.dylib */; };
+		7C2AA472201C10270076D2A0 /* libPocoCrypto.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA45A201C101A0076D2A0 /* libPocoCrypto.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA473201C10270076D2A0 /* libPocoCryptod.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA451201C101A0076D2A0 /* libPocoCryptod.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA474201C10270076D2A0 /* libPocoData.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA449201C101A0076D2A0 /* libPocoData.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA475201C10270076D2A0 /* libPocoDatad.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA447201C10190076D2A0 /* libPocoDatad.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA476201C10270076D2A0 /* libPocoDataSQLite.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA452201C101A0076D2A0 /* libPocoDataSQLite.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA477201C10270076D2A0 /* libPocoDataSQLited.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA450201C101A0076D2A0 /* libPocoDataSQLited.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA478201C10270076D2A0 /* libPocoFoundation.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA455201C101A0076D2A0 /* libPocoFoundation.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA479201C10270076D2A0 /* libPocoFoundationd.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA44D201C101A0076D2A0 /* libPocoFoundationd.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA47A201C10270076D2A0 /* libPocoJSON.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA45B201C101A0076D2A0 /* libPocoJSON.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA47B201C10270076D2A0 /* libPocoJSONd.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA44E201C101A0076D2A0 /* libPocoJSONd.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA47C201C10270076D2A0 /* libPocoNet.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA448201C101A0076D2A0 /* libPocoNet.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA47D201C10270076D2A0 /* libPocoNetd.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA44F201C101A0076D2A0 /* libPocoNetd.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA47E201C10270076D2A0 /* libPocoNetSSL.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA453201C101A0076D2A0 /* libPocoNetSSL.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA47F201C10270076D2A0 /* libPocoNetSSLd.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA458201C101A0076D2A0 /* libPocoNetSSLd.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA480201C10270076D2A0 /* libPocoRedis.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA446201C10190076D2A0 /* libPocoRedis.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA481201C10270076D2A0 /* libPocoRedisd.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA44A201C101A0076D2A0 /* libPocoRedisd.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA482201C10270076D2A0 /* libPocoUtil.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA459201C101A0076D2A0 /* libPocoUtil.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA483201C10270076D2A0 /* libPocoUtild.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA456201C101A0076D2A0 /* libPocoUtild.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA484201C10270076D2A0 /* libPocoXML.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA44B201C101A0076D2A0 /* libPocoXML.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA485201C10270076D2A0 /* libPocoXMLd.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA457201C101A0076D2A0 /* libPocoXMLd.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA486201C10270076D2A0 /* libPocoZip.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA454201C101A0076D2A0 /* libPocoZip.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7C2AA487201C10270076D2A0 /* libPocoZipd.51.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C2AA44C201C101A0076D2A0 /* libPocoZipd.51.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7C2AA439201C0F890076D2A0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7C2AA472201C10270076D2A0 /* libPocoCrypto.51.dylib in CopyFiles */,
+				7C2AA473201C10270076D2A0 /* libPocoCryptod.51.dylib in CopyFiles */,
+				7C2AA474201C10270076D2A0 /* libPocoData.51.dylib in CopyFiles */,
+				7C2AA475201C10270076D2A0 /* libPocoDatad.51.dylib in CopyFiles */,
+				7C2AA476201C10270076D2A0 /* libPocoDataSQLite.51.dylib in CopyFiles */,
+				7C2AA477201C10270076D2A0 /* libPocoDataSQLited.51.dylib in CopyFiles */,
+				7C2AA478201C10270076D2A0 /* libPocoFoundation.51.dylib in CopyFiles */,
+				7C2AA479201C10270076D2A0 /* libPocoFoundationd.51.dylib in CopyFiles */,
+				7C2AA47A201C10270076D2A0 /* libPocoJSON.51.dylib in CopyFiles */,
+				7C2AA47B201C10270076D2A0 /* libPocoJSONd.51.dylib in CopyFiles */,
+				7C2AA47C201C10270076D2A0 /* libPocoNet.51.dylib in CopyFiles */,
+				7C2AA47D201C10270076D2A0 /* libPocoNetd.51.dylib in CopyFiles */,
+				7C2AA47E201C10270076D2A0 /* libPocoNetSSL.51.dylib in CopyFiles */,
+				7C2AA47F201C10270076D2A0 /* libPocoNetSSLd.51.dylib in CopyFiles */,
+				7C2AA480201C10270076D2A0 /* libPocoRedis.51.dylib in CopyFiles */,
+				7C2AA481201C10270076D2A0 /* libPocoRedisd.51.dylib in CopyFiles */,
+				7C2AA482201C10270076D2A0 /* libPocoUtil.51.dylib in CopyFiles */,
+				7C2AA483201C10270076D2A0 /* libPocoUtild.51.dylib in CopyFiles */,
+				7C2AA484201C10270076D2A0 /* libPocoXML.51.dylib in CopyFiles */,
+				7C2AA485201C10270076D2A0 /* libPocoXMLd.51.dylib in CopyFiles */,
+				7C2AA486201C10270076D2A0 /* libPocoZip.51.dylib in CopyFiles */,
+				7C2AA487201C10270076D2A0 /* libPocoZipd.51.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		7C2AA43B201C0F890076D2A0 /* Poco_Object_Copy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Poco_Object_Copy; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C2AA43E201C0F890076D2A0 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		7C2AA446201C10190076D2A0 /* libPocoRedis.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoRedis.51.dylib; path = ../../../../../../usr/local/lib/libPocoRedis.51.dylib; sourceTree = "<group>"; };
+		7C2AA447201C10190076D2A0 /* libPocoDatad.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoDatad.51.dylib; path = ../../../../../../usr/local/lib/libPocoDatad.51.dylib; sourceTree = "<group>"; };
+		7C2AA448201C101A0076D2A0 /* libPocoNet.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoNet.51.dylib; path = ../../../../../../usr/local/lib/libPocoNet.51.dylib; sourceTree = "<group>"; };
+		7C2AA449201C101A0076D2A0 /* libPocoData.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoData.51.dylib; path = ../../../../../../usr/local/lib/libPocoData.51.dylib; sourceTree = "<group>"; };
+		7C2AA44A201C101A0076D2A0 /* libPocoRedisd.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoRedisd.51.dylib; path = ../../../../../../usr/local/lib/libPocoRedisd.51.dylib; sourceTree = "<group>"; };
+		7C2AA44B201C101A0076D2A0 /* libPocoXML.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoXML.51.dylib; path = ../../../../../../usr/local/lib/libPocoXML.51.dylib; sourceTree = "<group>"; };
+		7C2AA44C201C101A0076D2A0 /* libPocoZipd.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoZipd.51.dylib; path = ../../../../../../usr/local/lib/libPocoZipd.51.dylib; sourceTree = "<group>"; };
+		7C2AA44D201C101A0076D2A0 /* libPocoFoundationd.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoFoundationd.51.dylib; path = ../../../../../../usr/local/lib/libPocoFoundationd.51.dylib; sourceTree = "<group>"; };
+		7C2AA44E201C101A0076D2A0 /* libPocoJSONd.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoJSONd.51.dylib; path = ../../../../../../usr/local/lib/libPocoJSONd.51.dylib; sourceTree = "<group>"; };
+		7C2AA44F201C101A0076D2A0 /* libPocoNetd.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoNetd.51.dylib; path = ../../../../../../usr/local/lib/libPocoNetd.51.dylib; sourceTree = "<group>"; };
+		7C2AA450201C101A0076D2A0 /* libPocoDataSQLited.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoDataSQLited.51.dylib; path = ../../../../../../usr/local/lib/libPocoDataSQLited.51.dylib; sourceTree = "<group>"; };
+		7C2AA451201C101A0076D2A0 /* libPocoCryptod.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoCryptod.51.dylib; path = ../../../../../../usr/local/lib/libPocoCryptod.51.dylib; sourceTree = "<group>"; };
+		7C2AA452201C101A0076D2A0 /* libPocoDataSQLite.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoDataSQLite.51.dylib; path = ../../../../../../usr/local/lib/libPocoDataSQLite.51.dylib; sourceTree = "<group>"; };
+		7C2AA453201C101A0076D2A0 /* libPocoNetSSL.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoNetSSL.51.dylib; path = ../../../../../../usr/local/lib/libPocoNetSSL.51.dylib; sourceTree = "<group>"; };
+		7C2AA454201C101A0076D2A0 /* libPocoZip.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoZip.51.dylib; path = ../../../../../../usr/local/lib/libPocoZip.51.dylib; sourceTree = "<group>"; };
+		7C2AA455201C101A0076D2A0 /* libPocoFoundation.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoFoundation.51.dylib; path = ../../../../../../usr/local/lib/libPocoFoundation.51.dylib; sourceTree = "<group>"; };
+		7C2AA456201C101A0076D2A0 /* libPocoUtild.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoUtild.51.dylib; path = ../../../../../../usr/local/lib/libPocoUtild.51.dylib; sourceTree = "<group>"; };
+		7C2AA457201C101A0076D2A0 /* libPocoXMLd.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoXMLd.51.dylib; path = ../../../../../../usr/local/lib/libPocoXMLd.51.dylib; sourceTree = "<group>"; };
+		7C2AA458201C101A0076D2A0 /* libPocoNetSSLd.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoNetSSLd.51.dylib; path = ../../../../../../usr/local/lib/libPocoNetSSLd.51.dylib; sourceTree = "<group>"; };
+		7C2AA459201C101A0076D2A0 /* libPocoUtil.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoUtil.51.dylib; path = ../../../../../../usr/local/lib/libPocoUtil.51.dylib; sourceTree = "<group>"; };
+		7C2AA45A201C101A0076D2A0 /* libPocoCrypto.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoCrypto.51.dylib; path = ../../../../../../usr/local/lib/libPocoCrypto.51.dylib; sourceTree = "<group>"; };
+		7C2AA45B201C101A0076D2A0 /* libPocoJSON.51.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPocoJSON.51.dylib; path = ../../../../../../usr/local/lib/libPocoJSON.51.dylib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7C2AA438201C0F890076D2A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C2AA45C201C101A0076D2A0 /* libPocoRedis.51.dylib in Frameworks */,
+				7C2AA45D201C101A0076D2A0 /* libPocoDatad.51.dylib in Frameworks */,
+				7C2AA45E201C101A0076D2A0 /* libPocoNet.51.dylib in Frameworks */,
+				7C2AA45F201C101A0076D2A0 /* libPocoData.51.dylib in Frameworks */,
+				7C2AA460201C101A0076D2A0 /* libPocoRedisd.51.dylib in Frameworks */,
+				7C2AA461201C101A0076D2A0 /* libPocoXML.51.dylib in Frameworks */,
+				7C2AA462201C101A0076D2A0 /* libPocoZipd.51.dylib in Frameworks */,
+				7C2AA463201C101A0076D2A0 /* libPocoFoundationd.51.dylib in Frameworks */,
+				7C2AA464201C101A0076D2A0 /* libPocoJSONd.51.dylib in Frameworks */,
+				7C2AA465201C101A0076D2A0 /* libPocoNetd.51.dylib in Frameworks */,
+				7C2AA466201C101A0076D2A0 /* libPocoDataSQLited.51.dylib in Frameworks */,
+				7C2AA467201C101A0076D2A0 /* libPocoCryptod.51.dylib in Frameworks */,
+				7C2AA468201C101A0076D2A0 /* libPocoDataSQLite.51.dylib in Frameworks */,
+				7C2AA469201C101A0076D2A0 /* libPocoNetSSL.51.dylib in Frameworks */,
+				7C2AA46A201C101A0076D2A0 /* libPocoZip.51.dylib in Frameworks */,
+				7C2AA46B201C101A0076D2A0 /* libPocoFoundation.51.dylib in Frameworks */,
+				7C2AA46C201C101A0076D2A0 /* libPocoUtild.51.dylib in Frameworks */,
+				7C2AA46D201C101A0076D2A0 /* libPocoXMLd.51.dylib in Frameworks */,
+				7C2AA46E201C101A0076D2A0 /* libPocoNetSSLd.51.dylib in Frameworks */,
+				7C2AA46F201C101A0076D2A0 /* libPocoUtil.51.dylib in Frameworks */,
+				7C2AA470201C101A0076D2A0 /* libPocoCrypto.51.dylib in Frameworks */,
+				7C2AA471201C101A0076D2A0 /* libPocoJSON.51.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7C2AA432201C0F890076D2A0 = {
+			isa = PBXGroup;
+			children = (
+				7C2AA43D201C0F890076D2A0 /* Poco_Object_Copy */,
+				7C2AA43C201C0F890076D2A0 /* Products */,
+				7C2AA445201C10190076D2A0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7C2AA43C201C0F890076D2A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7C2AA43B201C0F890076D2A0 /* Poco_Object_Copy */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7C2AA43D201C0F890076D2A0 /* Poco_Object_Copy */ = {
+			isa = PBXGroup;
+			children = (
+				7C2AA43E201C0F890076D2A0 /* main.cpp */,
+			);
+			path = Poco_Object_Copy;
+			sourceTree = "<group>";
+		};
+		7C2AA445201C10190076D2A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C2AA45A201C101A0076D2A0 /* libPocoCrypto.51.dylib */,
+				7C2AA451201C101A0076D2A0 /* libPocoCryptod.51.dylib */,
+				7C2AA449201C101A0076D2A0 /* libPocoData.51.dylib */,
+				7C2AA447201C10190076D2A0 /* libPocoDatad.51.dylib */,
+				7C2AA452201C101A0076D2A0 /* libPocoDataSQLite.51.dylib */,
+				7C2AA450201C101A0076D2A0 /* libPocoDataSQLited.51.dylib */,
+				7C2AA455201C101A0076D2A0 /* libPocoFoundation.51.dylib */,
+				7C2AA44D201C101A0076D2A0 /* libPocoFoundationd.51.dylib */,
+				7C2AA45B201C101A0076D2A0 /* libPocoJSON.51.dylib */,
+				7C2AA44E201C101A0076D2A0 /* libPocoJSONd.51.dylib */,
+				7C2AA448201C101A0076D2A0 /* libPocoNet.51.dylib */,
+				7C2AA44F201C101A0076D2A0 /* libPocoNetd.51.dylib */,
+				7C2AA453201C101A0076D2A0 /* libPocoNetSSL.51.dylib */,
+				7C2AA458201C101A0076D2A0 /* libPocoNetSSLd.51.dylib */,
+				7C2AA446201C10190076D2A0 /* libPocoRedis.51.dylib */,
+				7C2AA44A201C101A0076D2A0 /* libPocoRedisd.51.dylib */,
+				7C2AA459201C101A0076D2A0 /* libPocoUtil.51.dylib */,
+				7C2AA456201C101A0076D2A0 /* libPocoUtild.51.dylib */,
+				7C2AA44B201C101A0076D2A0 /* libPocoXML.51.dylib */,
+				7C2AA457201C101A0076D2A0 /* libPocoXMLd.51.dylib */,
+				7C2AA454201C101A0076D2A0 /* libPocoZip.51.dylib */,
+				7C2AA44C201C101A0076D2A0 /* libPocoZipd.51.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7C2AA43A201C0F890076D2A0 /* Poco_Object_Copy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C2AA442201C0F890076D2A0 /* Build configuration list for PBXNativeTarget "Poco_Object_Copy" */;
+			buildPhases = (
+				7C2AA437201C0F890076D2A0 /* Sources */,
+				7C2AA438201C0F890076D2A0 /* Frameworks */,
+				7C2AA439201C0F890076D2A0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Poco_Object_Copy;
+			productName = Poco_Object_Copy;
+			productReference = 7C2AA43B201C0F890076D2A0 /* Poco_Object_Copy */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7C2AA433201C0F890076D2A0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "BAEK SEOKHO";
+				TargetAttributes = {
+					7C2AA43A201C0F890076D2A0 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 7C2AA436201C0F890076D2A0 /* Build configuration list for PBXProject "Poco_Object_Copy" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7C2AA432201C0F890076D2A0;
+			productRefGroup = 7C2AA43C201C0F890076D2A0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7C2AA43A201C0F890076D2A0 /* Poco_Object_Copy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7C2AA437201C0F890076D2A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C2AA43F201C0F890076D2A0 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7C2AA440201C0F890076D2A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7C2AA441201C0F890076D2A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7C2AA443201C0F890076D2A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /usr/local/include;
+			};
+			name = Debug;
+		};
+		7C2AA444201C0F890076D2A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /usr/local/include;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7C2AA436201C0F890076D2A0 /* Build configuration list for PBXProject "Poco_Object_Copy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C2AA440201C0F890076D2A0 /* Debug */,
+				7C2AA441201C0F890076D2A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C2AA442201C0F890076D2A0 /* Build configuration list for PBXNativeTarget "Poco_Object_Copy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C2AA443201C0F890076D2A0 /* Debug */,
+				7C2AA444201C0F890076D2A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7C2AA433201C0F890076D2A0 /* Project object */;
+}

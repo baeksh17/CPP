@@ -78,7 +78,9 @@ public:
         app.logger().information("Request from " + request.clientAddress().toString());
         
         SecureStreamSocket socket = static_cast<HTTPServerRequestImpl&>(request).socket();
-        socket.completeHandshake();
+//        socket.completeHandshake();
+        
+        socket.verifyPeerCertificate();
         if (socket.havePeerCertificate())
         {
             X509Certificate cert = socket.peerCertificate();
@@ -96,11 +98,9 @@ public:
         response.setContentType("text/html");
         
         std::ostream& ostr = response.send();
-        ostr << "<html><head><title>HTTPTimeServer powered by POCO C++ Libraries</title>";
-        ostr << "<meta http-equiv=\"refresh\" content=\"1\"></head>";
-        ostr << "<body><p style=\"text-align: center; font-size: 48px;\">";
-        ostr << dt;
-        ostr << "</p></body></html>";
+        ostr << "===================\n";
+        ostr << request.getURI() << "\n";
+        ostr << "============================\n";
     }
     
 private:
@@ -120,15 +120,15 @@ public:
     HTTPRequestHandler* createRequestHandler(const HTTPServerRequest& request)
     {
         std::cout << "start_createRequestHandler" << std::endl;
-        std::cout << request.getURI() << std::endl;
         if (request.getURI() == "/"){
-            std::cout << "start_new handle" << std::endl;
+            std::cout << "URI : " << request.getURI() << std::endl;
             return new TimeRequestHandler(_format);
         } else if (request.getURI() == "https://localhost:9443"){
-            
+            std::cout << "URI : " << request.getURI() << std::endl;
             return new TimeRequestHandler(_format);
         } else {
-            return 0;
+            std::cout << "URI : " << request.getURI() << std::endl;
+            return new TimeRequestHandler(_format);
         }
         
     }
@@ -220,15 +220,16 @@ protected:
             unsigned short port = (unsigned short) config().getInt("HTTPSTimeServer.port", 9443);
             std::string format(config().getString("HTTPSTimeServer.format", DateTimeFormat::SORTABLE_FORMAT));
             
-            Context::Ptr pContext = new Context(Context::SERVER_USE, "", "", "");
+            Context::Ptr pContext = new Context(Context::SERVER_USE, "/Users/bko117/Desktop/Git/CPP/Poco_Https_Server/cert.pem", "/Users/bko117/Desktop/Git/CPP/Poco_Https_Server/cert.pem", "/Users/bko117/Desktop/Git/CPP/Poco_Https_Server/cert.pem", Context::VERIFY_ONCE, 9, true, "ALL:!ADH:!LOW:!EXP:!MD5:@STRENGTH");
             
             // set-up a server socket
+//            SecureServerSocket svs(port, 64, pContext);
             SecureServerSocket svs(port, 64, pContext);
             // set-up a HTTPServer instance
             HTTPServer srv(new TimeRequestHandlerFactory(format), svs, new HTTPServerParams);
             // start the HTTPServer
             srv.start();
-            std::cout << "start" << std::endl;
+            std::cout << "start_HttpServer" << std::endl;
             // wait for CTRL-C or kill
             waitForTerminationRequest();
             // Stop the HTTPServer
