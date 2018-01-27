@@ -25,7 +25,7 @@ int main(int argc, char **argv)
     try {
         Poco::URI uri("https://localhost:9443");
         Poco::Net::HTTPSClientSession session(uri.getHost(), 9443);
-        Poco::Net::HTTPRequest req("POST", "https://localhost:9443", Poco::Net::HTTPMessage::HTTP_1_1);
+        Poco::Net::HTTPRequest req("GET", "https://localhost:9443", Poco::Net::HTTPMessage::HTTP_1_1);
         
         // リクエスト送信
         ostream& ss = session.sendRequest(req);

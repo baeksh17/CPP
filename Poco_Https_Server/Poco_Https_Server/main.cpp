@@ -78,6 +78,7 @@ public:
         app.logger().information("Request from " + request.clientAddress().toString());
         
         SecureStreamSocket socket = static_cast<HTTPServerRequestImpl&>(request).socket();
+        socket.completeHandshake();
         if (socket.havePeerCertificate())
         {
             X509Certificate cert = socket.peerCertificate();
