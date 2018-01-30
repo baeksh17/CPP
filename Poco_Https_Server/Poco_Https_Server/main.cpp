@@ -94,13 +94,20 @@ public:
         Timestamp now;
         std::string dt(DateTimeFormatter::format(now, _format));
         
+        response.set("X-Powered-By", "Express");
+        response.set("Vary", "Accept-Encoding");
+        response.setContentType("application/json; charset=utf-8");
+        response.set("ETag", "-32550834");
+        response.set("Content-Encoding", "gzip");
+        response.setKeepAlive(true);
         response.setChunkedTransferEncoding(true);
-        response.setContentType("text/html");
         
         std::ostream& ostr = response.send();
+        ostr << response.getReason();
         ostr << "===================\n";
         ostr << request.getURI() << "\n";
         ostr << "============================\n";
+        
     }
     
 private:

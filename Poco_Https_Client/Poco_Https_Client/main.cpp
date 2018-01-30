@@ -58,6 +58,15 @@ int main(int argc, char **argv)
         Poco::StreamCopier::copyStream(rs, sstr);
         string response = sstr.str();
         cout << string("response:") + response << endl;
+        
+        cout << res.get("X-Powered-By") << "\n";
+        cout << res.get("Vary") << "\n";
+        cout << res.get("Content-Type") << "\n";
+        cout << res.get("ETag") << "\n";
+        cout << res.get("Content-Encoding") << "\n";
+        cout << res.get("Date") << "\n";
+        cout << res.get("Connection") << "\n";
+        cout << res.get("Transfer-Encoding") << "\n";
     }
     catch ( Poco::Exception& ex )
     {
