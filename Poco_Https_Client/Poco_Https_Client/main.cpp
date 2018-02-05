@@ -12,6 +12,7 @@
 #include "Poco/Net/AcceptCertificateHandler.h"
 #include "Poco/Net/KeyConsoleHandler.h"
 #include "Poco/Net/ConsoleCertificateHandler.h"
+#include "Poco/InflatingStream.h"
 
 using namespace std;
 using Poco::StreamCopier;
@@ -53,6 +54,10 @@ int main(int argc, char **argv)
         // レスポンス受信
         Poco::Net::HTTPResponse res;
         istream& rs = session.receiveResponse(res);
+        Poco::InflatingInputStream inflater(rs, Poco::InflatingStreamBuf::STREAM_GZIP);
+        std::string data;
+        inflater >> data;
+        std::cout << "inflate : " << data << std::endl;
         
         stringstream sstr;
         Poco::StreamCopier::copyStream(rs, sstr);
@@ -67,6 +72,7 @@ int main(int argc, char **argv)
         cout << res.get("Date") << "\n";
         cout << res.get("Connection") << "\n";
         cout << res.get("Transfer-Encoding") << "\n";
+        
     }
     catch ( Poco::Exception& ex )
     {

@@ -33,6 +33,7 @@
 #include "Poco/Net/KeyConsoleHandler.h"
 #include "Poco/Net/AcceptCertificateHandler.h"
 #include <iostream>
+#include "Poco/DeflatingStream.h"
 
 
 using Poco::Net::SecureServerSocket;
@@ -103,10 +104,18 @@ public:
         response.setChunkedTransferEncoding(true);
         
         std::ostream& ostr = response.send();
-        ostr << response.getReason();
-        ostr << "===================\n";
-        ostr << request.getURI() << "\n";
-        ostr << "============================\n";
+//        std::ofstream& ostr = response.send();
+//        ostr << response.getReason();
+//        ostr << "===================\n";
+//        ostr << request.getURI() << "\n";
+//        ostr << "============================\n";
+        
+        std::cout << request.getURI() << std::endl;
+        
+        Poco::DeflatingOutputStream deflater(ostr, Poco::DeflatingStreamBuf::STREAM_GZIP);
+        deflater << "Hello, world!" << std::endl;
+//        deflater.close();
+//        ostr.close();
         
     }
     
