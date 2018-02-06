@@ -8,6 +8,7 @@
 #include <iostream>
 #include <thread>
 #include "WebSocketContainer.hpp"
+#include "CommonDef.h"
 
 using Poco::Net::HTTPClientSession;
 using Poco::Net::HTTPRequest;
@@ -15,14 +16,12 @@ using Poco::Net::HTTPResponse;
 using Poco::Net::HTTPMessage;
 using Poco::Net::WebSocket;
 
-Poco::FastMutex mutex;
-
 WebSoc::WebSocketContainer* WebSoc::WebSocketContainer::sockCon = nullptr;
 Poco::Net::WebSocket* WebSoc::WebSocketContainer::socket = nullptr;
 
 class WebSocketReceiver
 {
-    
+
 private:
     
 public:
@@ -31,12 +30,14 @@ public:
     void HandleReceiveData()
     {
         Poco::FastMutex::ScopedLock lock(::mutex);
+        WebSoc::WebSocketContainer::create();
         WebSoc::WebSocketContainer& sockCon = WebSoc::WebSocketContainer::getInstance();
         WebSocket& socket = sockCon.getSocketInstance();
+        HTTPClientSession& cs = sockCon.getSessionInstance();
         char receiveBuff[256];
         int flags = 0;
-        Poco::Timespan timeOut(10, 0);
-        
+        Poco::Timespan timeOut(0.1, 0);
+
         if (socket.poll(timeOut, Poco::Net::Socket::SELECT_READ) == false) {
             std::cout << "TIME OUT" << std::endl;
         } else {
@@ -55,13 +56,14 @@ private:
 public:
     WebSocketSender() {}
     
-    void HandleSendData()
+    void HandleSendData( void )
     {
         Poco::FastMutex::ScopedLock lock(::mutex);
         WebSoc::WebSocketContainer::create();
         WebSoc::WebSocketContainer& sockCon = WebSoc::WebSocketContainer::getInstance();
         WebSocket& socket = sockCon.getSocketInstance();
-        char const *testStr = "Hello Echo Websocket!";
+        HTTPClientSession& cs = sockCon.getSessionInstance();
+        char const *testStr = "Hello World!!!";
         int len = socket.sendFrame(testStr, strlen(testStr), WebSocket::FRAME_TEXT);
         std::cout << "Sent bytes : " << len << std::endl;
     }
@@ -70,14 +72,19 @@ public:
 void Sender()
 {
     WebSocketSender sender;
-    for(int i = 0; i < 5; i++)
+    while (true) {
         sender.HandleSendData();
+        sleep(1);
+    }
 }
 
 void Receiver()
 {
     WebSocketReceiver receiver;
-    receiver.HandleReceiveData();
+    while(true) {
+        receiver.HandleReceiveData();
+        sleep(1);
+    }
 }
 
 int main(int args,char **argv)
@@ -88,7 +95,5 @@ int main(int args,char **argv)
     t1.join();
     t2.join();
     
-//    sleep(10);
     return 0;
 }
-
