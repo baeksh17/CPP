@@ -9,7 +9,9 @@
 #ifndef CommonDef_h
 #define CommonDef_h
 
-Poco::FastMutex mutex;
+#include "Poco/Mutex.h"
+
+extern Poco::FastMutex mutex;
 
 
 #endif /* CommonDef_h */
