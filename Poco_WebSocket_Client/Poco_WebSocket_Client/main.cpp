@@ -18,6 +18,7 @@ using Poco::Net::WebSocket;
 
 WebSoc::WebSocketContainer* WebSoc::WebSocketContainer::sockCon = nullptr;
 Poco::Net::WebSocket* WebSoc::WebSocketContainer::socket = nullptr;
+Poco::Net::HTTPClientSession* WebSoc::WebSocketContainer::cs = nullptr;
 
 class WebSocketReceiver
 {
@@ -33,7 +34,6 @@ public:
         WebSoc::WebSocketContainer::create();
         WebSoc::WebSocketContainer& sockCon = WebSoc::WebSocketContainer::getInstance();
         WebSocket& socket = sockCon.getSocketInstance();
-        HTTPClientSession& cs = sockCon.getSessionInstance();
         char receiveBuff[256];
         int flags = 0;
         Poco::Timespan timeOut(0.1, 0);
@@ -62,7 +62,6 @@ public:
         WebSoc::WebSocketContainer::create();
         WebSoc::WebSocketContainer& sockCon = WebSoc::WebSocketContainer::getInstance();
         WebSocket& socket = sockCon.getSocketInstance();
-        HTTPClientSession& cs = sockCon.getSessionInstance();
         char const *testStr = "Hello World!!!";
         int len = socket.sendFrame(testStr, strlen(testStr), WebSocket::FRAME_TEXT);
         std::cout << "Sent bytes : " << len << std::endl;
@@ -89,11 +88,13 @@ void Receiver()
 
 int main(int args,char **argv)
 {
-    std::thread t1(Sender);
     std::thread t2(Receiver);
+    std::thread t1(Sender);
     
-    t1.join();
+    
     t2.join();
+    t1.join();
+    
     
     return 0;
 }

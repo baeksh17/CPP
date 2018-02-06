@@ -25,8 +25,8 @@ namespace WebSoc {
     class WebSocketContainer {
         
     private:
-        WebSocketContainer() = default;
-        ~WebSocketContainer() = default;
+        WebSocketContainer();
+        ~WebSocketContainer();
         static WebSocketContainer* sockCon;
         static Poco::Net::WebSocket* socket;
         static Poco::Net::HTTPClientSession* cs;

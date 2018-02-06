@@ -16,6 +16,17 @@ using Poco::Net::WebSocket;
 
 namespace WebSoc {
     
+    WebSocketContainer::WebSocketContainer()
+    {
+        sockCon = NULL;
+        socket = NULL;
+        cs = NULL;
+    }
+    WebSocketContainer::~WebSocketContainer()
+    {
+        
+    }
+    
     WebSocketContainer& WebSocketContainer::getInstance()
     {
         return *sockCon;
@@ -39,8 +50,7 @@ namespace WebSoc {
         if ( !socket )
         {
             cs = new HTTPClientSession("localhost", 9980);
-            cs->setProxyPort(9980);
-            HTTPRequest *request = new HTTPRequest(HTTPRequest::HTTP_GET, "/?encoding=text", HTTPMessage::HTTP_1_1);
+            HTTPRequest *request = new HTTPRequest(HTTPRequest::HTTP_GET, "/", HTTPMessage::HTTP_1_1);
             request->set("origin", "http://localhost");
             HTTPResponse *response = new HTTPResponse();
             
