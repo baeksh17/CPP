@@ -34,6 +34,8 @@
 #include "Poco/Net/AcceptCertificateHandler.h"
 #include <iostream>
 #include "Poco/DeflatingStream.h"
+#include "Poco/Net/ServerSocket.h"
+#include "Poco/Net/WebSocket.h"
 
 
 using Poco::Net::SecureServerSocket;
@@ -86,6 +88,22 @@ public:
         {
             X509Certificate cert = socket.peerCertificate();
             app.logger().information("Client certificate: " + cert.subjectName());
+            
+           
+            Poco::Net::WebSocket ws(request, response);
+            app.logger().information("WebSocket connection established.");
+            char buffer[1024];
+            int flags;
+            int n;
+            do
+            {
+                n = ws.receiveFrame(buffer, sizeof(buffer), flags);
+                app.logger().information(Poco::format("Frame received (length=%d, flags=0x%x).", n, unsigned(flags)));
+                ws.sendFrame(buffer, n, flags);
+            }
+            while (n > 0 && (flags & Poco::Net::WebSocket::FRAME_OP_BITMASK) != Poco::Net::WebSocket::FRAME_OP_CLOSE);
+            app.logger().information("WebSocket connection closed.");
+         
         }
         else
         {

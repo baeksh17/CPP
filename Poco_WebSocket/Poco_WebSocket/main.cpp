@@ -26,8 +26,25 @@
 #include "Poco/Util/HelpFormatter.h"
 #include "Poco/Format.h"
 #include <iostream>
+#include "Poco/Net/SecureStreamSocket.h"
+#include "Poco/Net/SecureServerSocket.h"
+#include "Poco/Net/X509Certificate.h"
+#include "Poco/Net/SSLManager.h"
+#include "Poco/Net/KeyConsoleHandler.h"
+#include "Poco/Net/AcceptCertificateHandler.h"
+#include "Poco/Net/HTTPServerRequestImpl.h"
 
-
+using Poco::Net::HTTPServerRequestImpl;
+using Poco::Net::SecureServerSocket;
+using Poco::Net::SecureStreamSocket;
+using Poco::Net::X509Certificate;
+using Poco::Net::SSLManager;
+using Poco::Net::Context;
+using Poco::Net::KeyConsoleHandler;
+using Poco::Net::PrivateKeyPassphraseHandler;
+using Poco::Net::InvalidCertificateHandler;
+using Poco::Net::AcceptCertificateHandler;
+using Poco::Net::Context;
 using Poco::Net::ServerSocket;
 using Poco::Net::WebSocket;
 using Poco::Net::WebSocketException;
@@ -104,45 +121,50 @@ public:
     void handleRequest(HTTPServerRequest& request, HTTPServerResponse& response)
     {
         Application& app = Application::instance();
-        try
+        
+        SecureStreamSocket socket = static_cast<HTTPServerRequestImpl&>(request).socket();
+        
+        if (socket.havePeerCertificate())
         {
-            WebSocket ws(request, response);
-            app.logger().information("WebSocket connection established.");
-            char buffer[1024];
-            int flags;
-            int n;
-            do
+            X509Certificate cert = socket.peerCertificate();
+            
+            try
             {
-                n = ws.receiveFrame(buffer, sizeof(buffer), flags);
-                app.logger().information(Poco::format("Frame received (length=%d, flags=0x%x).", n, unsigned(flags)));
-                
-                for(int i=0; i < 5; i++){
-                    std::cout << "send"<< std::endl;
-                    int sendNum = ws.sendFrame(buffer, n, flags);
-                    std::cout << "sendNum :  " << sendNum << std::endl;
-                    sleep(1);
-                    std::cout << "after sleep" << std::endl;
+                WebSocket ws(request, response);
+                app.logger().information("WebSocket connection established.");
+                char buffer[1024];
+                int flags;
+                int n;
+                do
+                {
+                    n = ws.receiveFrame(buffer, sizeof(buffer), flags);
+                    app.logger().information(Poco::format("Frame received (length=%d, flags=0x%x).", n, unsigned(flags)));
+                    ws.sendFrame(buffer, n, flags);
+                }
+                while (n > 0 && (flags & WebSocket::FRAME_OP_BITMASK) != WebSocket::FRAME_OP_CLOSE);
+                app.logger().information("WebSocket connection closed.");
+            }
+            catch (WebSocketException& exc)
+            {
+                app.logger().log(exc);
+                switch (exc.code())
+                {
+                    case WebSocket::WS_ERR_HANDSHAKE_UNSUPPORTED_VERSION:
+                        response.set("Sec-WebSocket-Version", WebSocket::WEBSOCKET_VERSION);
+                        // fallthrough
+                    case WebSocket::WS_ERR_NO_HANDSHAKE:
+                    case WebSocket::WS_ERR_HANDSHAKE_NO_VERSION:
+                    case WebSocket::WS_ERR_HANDSHAKE_NO_KEY:
+                        response.setStatusAndReason(HTTPResponse::HTTP_BAD_REQUEST);
+                        response.setContentLength(0);
+                        response.send();
+                        break;
                 }
             }
-            while (n > 0 && (flags & WebSocket::FRAME_OP_BITMASK) != WebSocket::FRAME_OP_CLOSE);
-            app.logger().information("WebSocket connection closed.");
         }
-        catch (WebSocketException& exc)
+        else
         {
-            app.logger().log(exc);
-            switch (exc.code())
-            {
-                case WebSocket::WS_ERR_HANDSHAKE_UNSUPPORTED_VERSION:
-                    response.set("Sec-WebSocket-Version", WebSocket::WEBSOCKET_VERSION);
-                    // fallthrough
-                case WebSocket::WS_ERR_NO_HANDSHAKE:
-                case WebSocket::WS_ERR_HANDSHAKE_NO_VERSION:
-                case WebSocket::WS_ERR_HANDSHAKE_NO_KEY:
-                    response.setStatusAndReason(HTTPResponse::HTTP_BAD_REQUEST);
-                    response.setContentLength(0);
-                    response.send();
-                    break;
-            }
+            app.logger().information("No client certificate available.");
         }
     }
 };
@@ -256,7 +278,7 @@ protected:
             unsigned short port = 9980;
             
             // set-up a server socket
-            ServerSocket svs(port);
+            SecureServerSocket svs(port);
             // set-up a HTTPServer instance
             HTTPServer srv(new RequestHandlerFactory, svs, new HTTPServerParams);
             // start the HTTPServer
@@ -275,4 +297,5 @@ private:
 
 
 POCO_SERVER_MAIN(WebSocketServer)
+
 

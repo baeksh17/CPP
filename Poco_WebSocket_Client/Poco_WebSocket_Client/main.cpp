@@ -16,9 +16,7 @@ using Poco::Net::HTTPResponse;
 using Poco::Net::HTTPMessage;
 using Poco::Net::WebSocket;
 
-WebSoc::WebSocketContainer* WebSoc::WebSocketContainer::sockCon = nullptr;
-Poco::Net::WebSocket* WebSoc::WebSocketContainer::socket = nullptr;
-Poco::Net::HTTPClientSession* WebSoc::WebSocketContainer::cs = nullptr;
+
 
 class WebSocketReceiver
 {

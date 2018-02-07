@@ -381,7 +381,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				HEADER_SEARCH_PATHS = /usr/local/opt/openssl/include;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/usr/local/opt/openssl/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = /usr/local/include;
 			};
@@ -391,7 +395,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				HEADER_SEARCH_PATHS = /usr/local/opt/openssl/include;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/usr/local/opt/openssl/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = /usr/local/include;
 			};
